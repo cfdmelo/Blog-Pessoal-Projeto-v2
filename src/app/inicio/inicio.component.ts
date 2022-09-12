@@ -15,12 +15,14 @@ import { Tema } from './../model/Tema';
 })
 export class InicioComponent implements OnInit {
 
-  postagem: Postagem = new Postagem
+  postagem: Postagem = new Postagem()
+
   listaPostagens: Postagem[]
+  tema: Tema = new Tema ()
   listaTemas: Tema[]
   idTema: number
-  tema: Tema = new Tema
-  user: User = new User
+
+  user: User = new User()
   idUser = environment.id
 
   constructor(
@@ -49,7 +51,7 @@ export class InicioComponent implements OnInit {
 
   findByIdTema(){
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema)=>{
-      this.tema
+      this.tema = resp
     })
   }
 
@@ -63,14 +65,15 @@ export class InicioComponent implements OnInit {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User)=>{
       this.user = resp
     }) 
-
   }
 
   publicar(){
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
+
     this.user.id = this.idUser
     this.postagem.usuario = this.user
+
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
       alert('Postagem realizada com sucesso!')
