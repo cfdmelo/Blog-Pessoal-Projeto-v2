@@ -28,9 +28,9 @@
     <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
 
-          <a class="nav-item nav-link active text-dark font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" data-target="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
+          <a class="nav-item nav-link active text-dark font-weight-bold" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
 
-          <a (click)="findByIdUser()" class="nav-item nav-link text-dark font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" data-target="tab" href="#minhasPostagens" role="tab" 
+          <a (click)="findByIdUser()" class="nav-item nav-link text-dark font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" 
           aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
 
           <a class="nav-item nav-link text-dark font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" data-target="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por Tema</a>
@@ -99,13 +99,13 @@
 
             <div class="form-group">
                <label for="texto">Texto</label>
-               <textarea [(ngModel)]="postagem.texto" class="form-control" name="texto" id="texto" rows="3"></textarea>
+               <textarea [(ngModel)]='postagem.texto' class="form-control" name="texto" id="texto" rows="3"></textarea>
             </div>
 
     
                 <div class="form-group">
                    <label for="tema"> Escolha um tema ou <a data-dismiss="modal" routerLink ='/tema'>Cadastre um novo</a>:</label>
-                   <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)="findByIdTema()">
+                   <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
                     <option *ngFor='let item of listaTemas' value="{{item.id}}" >{{item.descricao}}</option>
                    </select>
                 </div>
