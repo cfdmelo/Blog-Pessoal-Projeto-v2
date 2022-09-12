@@ -6,7 +6,7 @@ import { User } from '../model/User';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
-import { Tema } from './../model/Tema';
+import { Tema } from '../model/Tema';
 
 @Component({
   selector: 'app-inicio',
@@ -18,7 +18,7 @@ export class InicioComponent implements OnInit {
   postagem: Postagem = new Postagem()
 
   listaPostagens: Postagem[]
-  tema: Tema = new Tema ()
+  tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
 
@@ -33,6 +33,7 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit(){
+    window.scroll(0,0)
 
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
