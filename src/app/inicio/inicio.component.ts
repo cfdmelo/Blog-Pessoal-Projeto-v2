@@ -22,9 +22,11 @@ export class InicioComponent implements OnInit {
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
-  nomeTema: string
 
-  user: User = new User()
+  tema: Tema = new Tema
+
+  user: User = new User
+
   idUser = environment.id
 
   key = 'data'
@@ -83,14 +85,6 @@ export class InicioComponent implements OnInit {
     this.user.id = this.idUser
     this.postagem.usuario = this.user
 
-    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
-      this.postagem = resp
-      alert('Postagem realizada com sucesso!')
-      this.postagem = new Postagem()
-      this.getAllPostagens()
-    })
-
-  }
 
 
 }
