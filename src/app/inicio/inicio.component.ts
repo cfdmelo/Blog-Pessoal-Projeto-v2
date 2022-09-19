@@ -23,8 +23,6 @@ export class InicioComponent implements OnInit {
   listaTemas: Tema[]
   idTema: number
 
-  tema: Tema = new Tema
-
   user: User = new User
 
   idUser = environment.id
@@ -86,5 +84,5 @@ export class InicioComponent implements OnInit {
     this.postagem.usuario = this.user
 
 
-
+  }
 }
