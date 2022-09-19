@@ -16,14 +16,19 @@ import { Tema } from './../model/Tema';
 export class InicioComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
-
   listaPostagens: Postagem[]
-  tema: Tema = new Tema ()
+  tituloPost: string
+
+  tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  nomeTema: string
 
   user: User = new User()
   idUser = environment.id
+
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
@@ -65,6 +70,10 @@ export class InicioComponent implements OnInit {
     this.authService.getByIdUser(this.idUser).subscribe((resp: User)=>{
       this.user = resp
     }) 
+  }
+
+  temas(event: any){
+    this.idTema = event.target.value
   }
 
   publicar(){
